@@ -9,6 +9,14 @@ body {
     padding: 1rem 2rem
   }
 
+:root {
+  --color-accent: oklch(65% 50% 0);
+}
+
+html {
+  accent-color: var(--color-accent);
+}
+
 nav {
   display: flex;
   margin-bottom: 1rem;
@@ -31,9 +39,65 @@ nav a {
   text-align: center;
   padding: 0.5em;
   border-bottom: 0;
+  transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+nav a:hover {
+  border-bottom: 0.4em solid var(--color-accent);
+  background-color: oklch(from var(--color-accent) 95% 5% h);
 }
 
 nav a.current {
   border-bottom: 0.4em solid oklch(80% 3% 200);
   padding-bottom: 0.1em;
+}
+
+nav a.current:hover {
+  background-color: oklch(from var(--color-accent) 95% 5% h);
+}
+
+
+form input,
+form textarea,
+form button {
+  font: inherit;
+}
+
+form label {
+  display: block; /* Makes labels behave like block elements */
+  margin-block: 0.5em; /* Adds spacing before and after */
+}
+
+form input,
+form textarea {
+  display: block; /* Makes form controls behave like block elements */
+  width: 100%; /* Makes controls fill their container */
+  box-sizing: border-box; /* Ensures padding and borders are included in width */
+  padding: 0.5em; /* Adds spacing inside the controls */
+}
+
+form button {
+  margin-top: 1em; /* Adds space above the button */
+  padding: 0.5em 1em; /* Adds padding inside the button */
+}
+
+form {
+  display: grid; /* Enable CSS Grid */
+  grid-template-columns: auto 1fr; /* Two columns: content width and remaining space */
+  gap: 1em; /* Add spacing between grid items */
+}
+
+form label {
+  display: grid; /* Make labels grid containers */
+  grid-template-columns: subgrid; /* Inherit the grid structure from the form */
+  grid-column: 1 / -1; /* Make each label span the entire row */
+}
+
+form input,
+form textarea {
+  grid-column: 2; /* Place inputs in the second column */
+}
+
+form button {
+  grid-column: 1 / -1; /* Make the button span the entire form width */
 }
