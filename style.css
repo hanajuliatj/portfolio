@@ -101,3 +101,48 @@ form textarea {
 form button {
   grid-column: 1 / -1; /* Make the button span the entire form width */
 }
+
+.projects {
+  display: grid; /* Enable Grid Layout */
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* Flexible columns */
+  gap: 1em; /* Spacing between grid items */
+  padding: 1em; /* Add padding inside the container */
+}
+
+.projects article {
+  display: grid; /* Make articles grid containers */
+  grid-template-rows: subgrid; /* Align content across rows */
+  grid-row: span 3; /* Each article spans 3 rows */
+  border: 1px solid #ddd; /* Add a subtle border */
+  padding: 1em; /* Add padding inside each article */
+  background-color: #f9f9f9; /* Light background for better contrast */
+  border-radius: 0.5em; /* Optional: Rounded corners */
+}
+
+.projects article h2 {
+  margin: 0; /* Remove default margin for better alignment */
+  font-size: 1.5em; /* Adjust heading size */
+}
+
+.projects article img {
+  width: 100%; /* Ensure images scale within their container */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Prevent inline spacing issues */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1; /* Tighten heading line spacing */
+  text-wrap: balance; /* Balance uneven lines */
+  margin-bottom: 0.5em; /* Add space below headings */
+}
+
+h1 {
+  font-size: 400%; /* Make <h1> significantly larger for contrast */
+  margin-bottom: 1em; /* Add more spacing below the main heading */
+}
+
+.projects article:hover {
+  transform: translateY(-0.2em); /* Slight lift on hover */
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+}
