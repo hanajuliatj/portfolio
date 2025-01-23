@@ -6,23 +6,26 @@ body {
     line-height: 1.6;
     max-width: 100ch;
     margin-inline: auto;
-    padding: 1rem 2rem
+    padding: 1rem 2rem;
+    background-color: var(--background-color);
+    color: canvastext; /* Use system text color for readability */
   }
 
 :root {
-  --color-accent: oklch(65% 50% 0);
+  --color-accent: oklch(65% 50% 0); /* Bright accent color */
+  --border-color: oklch(50% 10% 200 / 40%); /* Adaptable border color */
+  --background-color: canvas; /* Default background color */
 }
+
+
 
 html {
-  accent-color: var(--color-accent);
+  color-scheme: light dark;
 }
 
-nav {
-  display: flex;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid oklch(80% 3% 200);
-  padding: 0.5em 0;
-}
+
+
+
 
 nav ul {
   display: contents;
@@ -32,29 +35,40 @@ nav li {
   display: contents;
 }
 
+nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom: 2px solid var(--border-color);
+  background-color: var(--background-color);
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+
+
+/* Link styling */
 nav a {
-  flex:1;
+  color: var(--color-accent);
   text-decoration: none;
-  color: inherit;
-  text-align: center;
+  font-weight: bold;
   padding: 0.5em;
-  border-bottom: 0;
-  transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
+  border-bottom: 2px solid transparent;
+  transition: background-color 0.3s, color 0.3s, border-bottom-color 0.3s;
 }
 
-nav a:hover {
-  border-bottom: 0.4em solid var(--color-accent);
-  background-color: oklch(from var(--color-accent) 95% 5% h);
-}
 
+/* Highlight current page */
 nav a.current {
-  border-bottom: 0.4em solid oklch(80% 3% 200);
-  padding-bottom: 0.1em;
+  border-bottom-color: var(--color-accent);
 }
 
-nav a.current:hover {
-  background-color: oklch(from var(--color-accent) 95% 5% h);
+/* Hover effect */
+nav a:hover {
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+  color: canvastext;
 }
+
 
 
 form input,
@@ -145,4 +159,27 @@ h1 {
   transform: translateY(-0.2em); /* Slight lift on hover */
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1); /* Soft shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+}
+
+.color-scheme {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1rem;
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.color-scheme select {
+  margin-left: 0.5rem;
+  padding: 0.25rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+}
+
+body.dark-mode .color-scheme select {
+  background-color: #333;
+  color: white;
 }
