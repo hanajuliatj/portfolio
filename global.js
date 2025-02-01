@@ -87,3 +87,67 @@ const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 // Update the "Automatic" option text based on the system preference
 const autoOption = themeSelect.querySelector('option[value="light dark"]');
 autoOption.textContent = `Automatic (${isDarkMode ? 'Dark' : 'Light'})`;
+
+export async function fetchJSON(url) {
+  try {
+      // Fetch the JSON file from the given URL
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch projects: ${response.statusText}`);
+      }
+      const data = await response.json();
+      return data; 
+
+
+  } catch (error) {
+      console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+
+export function renderProjects(project, containerElement, headingLevel = "h2") {
+  if (!containerElement) {
+      console.error("Container element is not provided or invalid.");
+      return;
+  }
+
+  // Validate heading level to ensure it's an actual heading tag (h1-h6)
+  const validHeadings = ["h1", "h2", "h3", "h4", "h5", "h6"];
+  if (!validHeadings.includes(headingLevel)) {
+      console.warn(`Invalid heading level "${headingLevel}". Defaulting to "h2".`);
+      headingLevel = "h2";
+  }
+
+  // Create project wrapper
+  const projectWrapper = document.createElement("div");
+  projectWrapper.classList.add("project-card");
+
+  // Create dynamic heading element
+  const titleElement = document.createElement(headingLevel);
+  titleElement.textContent = project.title || "Untitled Project";
+  projectWrapper.appendChild(titleElement);
+
+  // Create and append description if available
+  if (project.description) {
+      const descriptionElement = document.createElement("p");
+      descriptionElement.textContent = project.description;
+      projectWrapper.appendChild(descriptionElement);
+  }
+
+  // Create and append image if available
+  if (project.imageUrl) {
+      const imageElement = document.createElement("img");
+      imageElement.src = project.imageUrl;
+      imageElement.alt = project.title || "Project Image";
+      imageElement.classList.add("project-image");
+      projectWrapper.appendChild(imageElement);
+  }
+
+  // Append project to container
+  containerElement.appendChild(projectWrapper);
+}
+
+export async function fetchGitHubData(username) {
+  const url = `https://api.github.com/users/${username}`;
+  return fetchJSON(url);
+}

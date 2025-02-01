@@ -1,0 +1,74 @@
+[
+	{
+		"title": "COVID-19 Data Visualization",
+		"year": "2025",
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Analyzed COVID-19 case trends using Python, Pandas, and Matplotlib. Created interactive visualizations in Tableau to show global and regional trends."
+	},
+	{
+		"title": "Personal Finance Dashboard",
+		"year": "2024",
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Developed a web dashboard using Flask and D3.js to help students track their expenses, visualize spending habits, and manage budgets."
+	},
+	{
+		"title": "E-Commerce Recommendation System",
+		"year": "2024",
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Created a recommendation engine for an online store using collaborative filtering and content-based filtering techniques with Python and scikit-learn."
+	},
+	{
+		"title": "Lorem ipsum dolor sit.",
+		"year": "2024",
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+	},
+	{
+		"title": "Lorem ipsum dolor sit.",
+		"year": "2023",
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+	},
+	{
+		"title": "Lorem ipsum dolor sit.",
+		"year": "2023",
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+	},
+	{
+		"title": "Lorem ipsum dolor sit.",
+		"year": "2023",
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+	},
+	{
+		"title": "Lorem ipsum dolor sit.",
+		"year": "2023",
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+	},
+	{
+		"title": "Lorem ipsum dolor sit.",
+		"year": "2023",
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+	},
+	{
+		"title": "Lorem ipsum dolor sit.",
+		"year": "2022",
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+	},
+	{
+		"title": "Lorem ipsum dolor sit.",
+		"year": "2022",
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+	},
+	{
+		"title": "Lorem ipsum dolor sit.",
+		"year": "2022",
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+	}
+]

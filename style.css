@@ -183,3 +183,39 @@ body.dark-mode .color-scheme select {
   background-color: #333;
   color: white;
 }
+
+
+.github-stats {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Grid styling for the <dl> */
+.github-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  grid-template-rows: auto auto; /* Two rows: one for <dt> and one for <dd> */
+  gap: 10px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Ensure all <dt> (labels) are in the first row */
+.github-stats dt {
+  font-weight: bold;
+  color: #333;
+  grid-row: 1; /* Place in first row */
+}
+
+/* Ensure all <dd> (values) are in the second row */
+.github-stats dd {
+  grid-row: 2; /* Place in second row */
+  font-size: 1.2em;
+  color: #007acc;
+  margin: 0;
+}
