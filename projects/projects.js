@@ -73,29 +73,39 @@ searchInput.addEventListener('input', (event) => {
     renderPieChart(filteredProjects);  // Update pie chart with search results
 });
 
-// FUNCTION TO RENDER PIE CHART (FIXED)
 function renderPieChart(projectsGiven) {
-    if (!projectsGiven || projectsGiven.length === 0) return; // Ensure valid input
+    if (!projectsGiven || projectsGiven.length === 0) {
+        console.log("No projects to display in pie chart.");
+        d3.select("#projects-pie-plot").selectAll("*").remove();
+        d3.select(".legend").selectAll("*").remove();
+        return;
+    }
 
-    // Group projects by year and count occurrences
-    let newRolledData = d3.rollups(
+    // **Fix: Properly Group Filtered Projects by Year**
+    let groupedProjects = d3.rollups(
         projectsGiven,
-        (v) => v.length, // Count projects per year
-        (d) => d.year // Group by project year
+        (v) => v.length,  // Count projects per year
+        (d) => d.year      // Group by project year
     );
 
-    // Convert grouped data into the correct format
-    let newData = newRolledData.map(([year, count]) => ({
+    // Convert grouped data into proper format
+    let newData = groupedProjects.map(([year, count]) => ({
         value: count,
         label: year
     }));
 
-    // Generate colors using D3's built-in color schemes
-    let colors = d3.scaleOrdinal(d3.schemeTableau10);
-
-    // Clear previous pie chart & legend before re-rendering
+    // **Fix: Ensure Pie Chart Clears Before Updating**
     d3.select("#projects-pie-plot").selectAll("*").remove();
     d3.select(".legend").selectAll("*").remove();
+
+    // Define Pie Chart Colors
+    let colors = d3.scaleOrdinal(d3.schemeTableau10);
+
+    // **Fix: Ensure Pie Chart Updates with Filtered Data**
+    if (newData.length === 0) {
+        console.log("No data to display in pie chart.");
+        return;
+    }
 
     // Select SVG element
     const svg = d3.select("#projects-pie-plot");
@@ -106,11 +116,12 @@ function renderPieChart(projectsGiven) {
     let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 
     // Append new paths for each slice
-    arcData.forEach((d, idx) => {
-        svg.append("path")
-            .attr("d", arcGenerator(d))
-            .attr("fill", colors(idx));
-    });
+    svg.selectAll("path")
+        .data(arcData)
+        .enter()
+        .append("path")
+        .attr("d", arcGenerator)
+        .attr("fill", (d, i) => colors(i));
 
     // Generate updated legend
     let legend = d3.select(".legend");
@@ -120,4 +131,5 @@ function renderPieChart(projectsGiven) {
             .attr("class", "legend-item")
             .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
     });
+
 }
