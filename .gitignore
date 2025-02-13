@@ -1,0 +1,16 @@
+# .gitignore file to exclude unnecessary files from Git
+
+# Exclude the generated code statistics CSV file
+meta/loc.csv
+
+# Exclude node_modules directory (common for Node.js projects)
+node_modules/
+
+# Exclude environment files (optional but recommended)
+.env
+
+# Exclude log files
+*.log
+
+# Exclude system files
+.DS_Store
