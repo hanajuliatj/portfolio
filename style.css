@@ -23,6 +23,16 @@ html {
   color-scheme: light dark;
 }
 
+.stats dt {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.stats dd {
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
 
 
 

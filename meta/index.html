@@ -6,25 +6,19 @@
     <title>Meta</title>
     <link rel="stylesheet" href="../style.css">
     <script type="module" src="../global.js"></script>
-    <script type="module" src="projects.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script defer src="main.js"></script>
 </head>
 <body>
     <main>
         <h1>Meta</h1>
-        <p>This page displays statistics and insights about our project codebase.</p>
-        <section>
-            <h2>Overview</h2>
-            <p>Explore detailed metrics, including the number of lines of code, number of files, and file type distribution.</p>
-        </section>
-
-        <section>
-            <h2>Visualizations</h2>
-            <p>Interactive charts will be added here to showcase insights into the project's structure.</p>
-        </section>
+            <section>
+                <h2>Summary Statistics</h2>
+                <div id="stats"></div>
+                <div id="chart"></div>
+                <dl id="language-breakdown" class="stats"></dl>
+            </section>
+        
     </main>
-
-    <footer>
-        <p>&copy; 2025 Project Analysis Team</p>
-    </footer>
 </body>
 </html>
