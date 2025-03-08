@@ -1,3 +1,7 @@
+:global(body) {
+  max-width: min(120ch, 80vw); /* Expand width but keep it within 80% of viewport */
+}
+
 body {
     /* Set line height to 1.5 times the font size
          and use the OS’s UI font as the website font
@@ -292,5 +296,164 @@ path {
 .selected.legend-item {
   font-weight: bold;
   text-decoration: underline;
+}
+
+circle {
+  fill: orange;
+  transition: all 200ms, r calc(var(--r) * 100ms); /* Animate radius change */
+}
+
+
+
+
+.files {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.files > div {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+.files dt {
+  grid-column: 1;
+  font-weight: bold;
+}
+
+.files dd {
+  grid-column: 2;
+  text-align: right;
+}
+
+
+.line {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+
+dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
+dt {
+  grid-column: 1;
+  font-weight: bold;
+}
+
+dt small {
+  display: block;
+  font-size: 0.8em;
+  opacity: 0.6;
+}
+
+
+#scrollytelling {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+/* feel free to play with this to make your scrolly more seemless with your plot */
+#scroll-container {
+  grid-column: 1;
+  position: relative;
+  width: 95%;
+  height: 350px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  margin-bottom: 50px;
+}
+
+#chart {
+  grid-column: 2;
+}
+
+#spacer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: none; /* transparent */
+  pointer-events: none;
+}
+
+#items-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.item {
+  height: 30px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-bottom: 2px solid #eee;
+}
+
+.commit-entry {
+  padding: 10px;
+  font-size: 1rem;
+  line-height: 1.4;
+  max-width: 90%;
+}
+
+#scroll-date {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+
+#file-scrolly {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 1rem;
+  align-items: start;
+}
+
+#file-scroll-container {
+  position: relative;
+  overflow-y: scroll;
+  height: 400px; /* Adjust as needed */
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  padding: 10px;
+}
+
+#file-items-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.file-entry {
+  padding: 10px;
+  font-size: 1rem;
+  line-height: 1.4;
+  max-width: 90%;
 }
 
